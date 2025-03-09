@@ -169,3 +169,26 @@ def kuznyechik_decrypt(subkeys: list[bytes], block: bytes) -> bytes:
 
 	return bytes(block)
 
+
+# ──────────────────────────────────────────────────────────────────────────────
+
+if __name__ == '__main__':
+
+	subkeys = kuznyechik_key_schedule(
+		b'\x88\x99\xaa\xbb\xcc\xdd\xee\xff\x00\x11\x22\x33\x44\x55\x66\x77'
+		b'\xfe\xdc\xba\x98\x76\x54\x32\x10\x01\x23\x45\x67\x89\xab\xcd\xef'
+	)
+
+	ciphertext = kuznyechik_encrypt(
+		subkeys,
+		b'\x11\x22\x33\x44\x55\x66\x77\x00\xff\xee\xdd\xcc\xbb\xaa\x99\x88'
+	)
+
+	plaintext = kuznyechik_decrypt(
+		subkeys,
+		ciphertext
+	)
+
+	print('Encrypted: ' + ciphertext.hex())
+	print('Decrypted: ' + plaintext.hex())
+
