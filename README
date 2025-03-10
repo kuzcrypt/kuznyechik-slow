@@ -1,0 +1,6 @@
+A Slow Python3 Implementation of Kuznyechik
+═══════════════════════════════════════════
+This is an unoptimised implementation of the Russian block cipher called
+Kuznyechik which was standardised in 2015 as GOST 34.12-2015. Due to the
+lack of optimisation, it is not suitable to be used in production. The only
+reason for this implementation is testing and learning.
